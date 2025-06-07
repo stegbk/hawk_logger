@@ -1,0 +1,16 @@
+{
+  "session": {
+    "user": {
+      "userId": "alexa-user-123"
+    }
+  },
+  "request": {
+    "intent": {
+      "slots": {
+        "utterance": {
+          "value": "Zeus is getting 30 grams of food"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "session": {
+    "user": {
+      "userId": "alexa-user-123"
+    }
+  },
+  "request": {
+    "intent": {
+      "slots": {
+        "utterance": {
+          "value": "Ahab is getting 24 grams of food"
+        }
+      }
+    }
+  }
+}
