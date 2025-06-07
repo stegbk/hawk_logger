@@ -5,3 +5,4 @@ __pycache__/
 *.zip
 .aws-sam/
 .vscode/
+env.json
