@@ -17,16 +17,18 @@ def lambda_handler(event, context):
     slots = intent.get("slots", {})
     sentence = slots.get("utterance", {}).get("value", "")
 
-    session_id = event.get("session", {}).get("sessionId", "default")
-    bird_name = "Unknown"
-    session_key = f"{session_id}::{bird_name}"
+    # Parse birdName early using a temporary GPT call
+    bird_name = extract_bird_name(sentence) or "Unknown"
+    today = datetime.now(timezone("US/Pacific")).strftime("%Y-%m-%d")
+    log_key = {"birdName": bird_name, "date": today}
 
-    existing = collection.find_one({"sessionKey": session_key})
+    existing = collection.find_one(log_key)
     if existing:
         log = existing.get("log", {})
     else:
         log = {
             "timestamp": datetime.now(timezone("US/Pacific")).isoformat(),
+            "date": today,
             "birdName": bird_name,
             "weight": None,
             "food": None,
@@ -37,10 +39,9 @@ def lambda_handler(event, context):
         }
 
     updated_log = update_log_with_chatgpt(log, sentence)
-    session_key = f"{session_id}::{updated_log.get('birdName', 'Unknown')}"
 
     collection.update_one(
-        {"sessionKey": session_key},
+        log_key,
         {
             "$set": {
                 "log": updated_log,
@@ -55,7 +56,7 @@ def lambda_handler(event, context):
         "response": {
             "outputSpeech": {
                 "type": "PlainText",
-                "text": f"Logged update for {updated_log.get('birdName', 'your bird')}."
+                "text": f"Logged update for {updated_log.get('birdName', 'your bird')}"
             },
             "shouldEndSession": False
         }
@@ -90,3 +91,25 @@ Return only the updated JSON.
     except Exception as e:
         print("GPT parse failed:", e)
         return log
+
+def extract_bird_name(sentence):
+    prompt = f"""
+Extract the bird's name from this sentence:
+"{sentence}"
+
+Return only the name as a JSON string, or null if not found.
+"""
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": "Extract bird names from natural speech."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.0
+        )
+        name = json.loads(response.choices[0].message.content)
+        return name if isinstance(name, str) else None
+    except Exception as e:
+        print("Name extraction failed:", e)
+        return None
