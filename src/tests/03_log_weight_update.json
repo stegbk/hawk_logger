@@ -1,16 +1,16 @@
 {
-  "session": {
-    "user": {
-      "userId": "alexa-user-123"
-    }
-  },
   "request": {
     "intent": {
       "slots": {
         "utterance": {
-          "value": "Ahab weighs 853 grams"
+          "value": "test_ahab weighs 900 grams"
         }
       }
+    }
+  },
+  "session": {
+    "user": {
+      "userId": "test_user"
     }
   }
 }

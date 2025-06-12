@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Privacy Policy - Hawk Logger</title>
+</head>
+<body>
+  <h1>Privacy Policy for Hawk Logger</h1>
+  <p>Last updated: June 9, 2025</p>
+
+  <p>Hawk Logger is an Alexa skill designed to help users track and manage data related to their birds of prey. We are committed to protecting your privacy and ensuring your data is handled responsibly.</p>
+
+  <h2>Information Collection</h2>
+  <p>This skill does <strong>not</strong> collect or store any personally identifiable information. All interactions with the skill are handled anonymously through Alexa voice services.</p>
+
+  <h2>How We Use Information</h2>
+  <p>Data entered by users (e.g., bird name, food amount, weight, behavior notes) is processed for the purpose of generating and maintaining logs in a connected database. This information is only associated with the user's Alexa device ID and is not shared or used for advertising.</p>
+
+  <h2>Data Storage</h2>
+  <p>Data is stored securely in a cloud database (MongoDB Atlas) and is only accessible to the skill owner and developers. No personal account information is linked or stored.</p>
+
+  <h2>Third Parties</h2>
+  <p>We do not share any data with third parties. Your data is used solely within the context of this skill.</p>
+
+  <h2>User Control</h2>
+  <p>You may request deletion of your data at any time by contacting the developer or by using a voice command such as "delete bird [name]" within the skill.</p>
+
+  <h2>Contact</h2>
+  <p>If you have any questions about this Privacy Policy, please contact us at: <a href="ma">your@email.com</a></p>
+</body>
+</html>
+

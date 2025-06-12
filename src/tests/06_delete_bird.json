@@ -8,7 +8,7 @@
     "intent": {
       "slots": {
         "utterance": {
-          "value": "delete bird Ahab"
+          "value": "delete bird test_test_ahab"
         }
       }
     }

@@ -3,7 +3,7 @@
     "intent": {
       "slots": {
         "utterance": {
-          "value": "test_ahab is getting 60 grams of food"
+          "value": "add a Harris Hawk named test_series_bird"
         }
       }
     }

@@ -1,0 +1,10 @@
+version = 0.1
+[default.deploy.parameters]
+stack_name = "hawk-logger"
+resolve_s3 = true
+s3_prefix = "hawk-logger"
+region = "us-west-2"
+profile = "hawk-logger-dev"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+image_repositories = []

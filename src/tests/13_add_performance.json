@@ -3,7 +3,7 @@
     "intent": {
       "slots": {
         "utterance": {
-          "value": "test_ahab is getting 60 grams of food"
+          "value": "test_series_bird had a performance of 9 today"
         }
       }
     }

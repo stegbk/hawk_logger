@@ -1,16 +1,16 @@
 {
-  "session": {
-    "user": {
-      "userId": "alexa-user-123"
-    }
-  },
   "request": {
     "intent": {
       "slots": {
         "utterance": {
-          "value": "what information is still needed for Ahab"
+          "value": "what information is still needed for test_ahab"
         }
       }
+    }
+  },
+  "session": {
+    "user": {
+      "userId": "test_user"
     }
   }
 }
